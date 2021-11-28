@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APITecsup13.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -14,9 +15,11 @@ namespace APITecsup13
             // Rutas de API web
             config.MapHttpAttributeRoutes();
 
+            config.MessageHandlers.Add(new TokenValidationHandler());
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }
