@@ -1,5 +1,6 @@
 ﻿using APITecsup13.Context;
 using APITecsup13.Models;
+using Response;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -17,9 +18,21 @@ namespace APITecsup13.Controllers
         private ExampleContext db = new ExampleContext();
 
         // GET: api/People
-        public IQueryable<Person> GetPeople()
+        public List<PersonResponse> GetPeople()
         {
-            return db.People;
+
+            // Listado de base de datos
+            var people = db.People.ToList();
+
+            // Response del servicio
+            var response = (from c in people 
+                            select new PersonResponse
+                           {
+                               FirstName = c.FirstName,
+                               LastName = c.LastName
+                           }).ToList();
+
+            return response;
         }
 
         // GET: api/People/5

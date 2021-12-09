@@ -205,13 +205,9 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Detail.cs" />
     <Compile Include="Models\Invoice.cs" />
-    <Compile Include="Models\LoginRequest.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Responses\DetailResponse.cs" />
-    <Compile Include="Responses\InvoiceResponse.cs" />
-    <Compile Include="Responses\InvoiceResponseV2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -306,6 +302,16 @@
     <EmbeddedResource Include="Migrations\202111280747332_v3.resx">
       <DependentUpon>202111280747332_v3.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Request\Request.csproj">
+      <Project>{289eb367-7fdf-45f3-b89a-b0b8afaabfe9}</Project>
+      <Name>Request</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Response\Response.csproj">
+      <Project>{0ab375e4-22ba-4d4d-ab04-204386205526}</Project>
+      <Name>Response</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
